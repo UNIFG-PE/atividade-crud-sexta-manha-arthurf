@@ -26,6 +26,10 @@ app.post("/api/products", async (req, res) => {
     res.json(await Product.build({ name: name, price: price }).save());
 });
 
+app.get("/api/products", async (req, res) => {
+    res.json(await Product.findAll());
+});
+
 app.get("/api/products/:id", async (req, res) => {
     const id = parseInt(req.params.id);
     if(!id) {
